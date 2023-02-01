@@ -1,0 +1,101 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: pihole
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: pihole
+      version: 2.9.3
+      sourceRef:
+        kind: HelmRepository
+        name: mojo2600
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    replicaCount: 1
+    strategyType: RollingUpdate
+    maxSurge: 1
+    maxUnavailable: 1
+    dnsHostPort:
+      enabled: true
+      port: 53
+    serviceDns:
+      mixedService: true
+      type: LoadBalancer
+      port: 53
+      loadBalancerIP: "10.0.0.232"
+      annotations:
+        metallb.universe.tf/allow-shared-ip: pihole-svc
+        metallb.universe.tf/loadBalancerIPs: "10.0.0.232"
+        externalTrafficPolicy: Local
+    serviceDhcp:
+      enabled: false
+    serviceWeb:
+      http:
+        enabled: true
+        port: 80
+      https:
+        enabled: true
+        port: 443
+      type: LoadBalancer
+      loadBalancerIP: "10.0.0.233"
+      annotations:
+        metallb.universe.tf/allow-shared-ip: pihole-svc
+        metallb.universe.tf/loadBalancerIPs: "10.0.0.233"
+    virtualHost: pihole
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      path: /
+      hosts:
+        - &host "pihole.zweifel.cloud"
+      tls:
+        - hosts:
+            - *host
+      annotations:
+        hajimari.io/icon: mdi:raspberry-pi
+        hajimari.io/url: "https://pihole.zweifel.cloud/admin"
+        hajimari.io/group: "networking"
+        hajimari.io/targetBlank: "true"
+        hajimari.io/info: "DNS Server and Ad Blocker"
+    probes:
+      liveness:
+        enabled: true
+        initialDelaySeconds: 60
+        failureThreshold: 10
+        timeoutSeconds: 5
+        port: http
+        scheme: HTTP
+      readiness:
+        enabled: true
+        initialDelaySeconds: 60
+        failureThreshold: 3
+        timeoutSeconds: 5
+        port: http
+        scheme: HTTP
+    persistentVolumeClaim:
+      # set to true to use pvc
+      enabled: true # Change to true
+      # set to true to use you own pvc
+      existingClaim: pihole # Name of the persistent volume claim
+    admin:
+      existingSecret: "pihole-secret" # Reference to the secret created step 2
+      passwordKey: "PIHOLE_ADMIN_PASS"
+    extraEnvVars:
+      TZ: "America/Chicago"
+    DNS1: "${METALLB_K8S_GATEWAY_ADDR}"
+    DNS2: "1.1.1.1"

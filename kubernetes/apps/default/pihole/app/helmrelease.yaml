@@ -40,7 +40,6 @@ spec:
       loadBalancerIP: "10.0.0.232"
       annotations:
         metallb.universe.tf/allow-shared-ip: pihole-svc
-        metallb.universe.tf/loadBalancerIPs: "10.0.0.232"
         externalTrafficPolicy: Local
     serviceDhcp:
       enabled: false
@@ -52,10 +51,9 @@ spec:
         enabled: true
         port: 443
       type: LoadBalancer
-      loadBalancerIP: "10.0.0.233"
+      loadBalancerIP: "10.0.0.232"
       annotations:
         metallb.universe.tf/allow-shared-ip: pihole-svc
-        metallb.universe.tf/loadBalancerIPs: "10.0.0.233"
     virtualHost: pihole
     ingress:
       enabled: true

@@ -70,7 +70,7 @@ spec:
         hajimari.io/group: "networking"
         hajimari.io/targetBlank: "true"
         hajimari.io/info: "DNS Server and Ad Blocker"
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-production
     probes:
       liveness:
         enabled: true

@@ -8,11 +8,12 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: metallb
-      version: 0.13.7
+      # https://github.com/metallb/metallb/commit/ef822134600bf9ce2a0365cc9a0e7cc5752c8269
+      # https://github.com/MoJo2600/pihole-kubernetes/issues/248
+      chart: charts/metallb
       sourceRef:
-        kind: HelmRepository
-        name: metallb
+        kind: GitRepository
+        name: metallb-git
         namespace: flux-system
   maxHistory: 3
   install:

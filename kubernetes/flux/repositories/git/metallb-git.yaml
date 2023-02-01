@@ -1,0 +1,16 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: metallb-git
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://github.com/metallb/metallb
+  ref:
+    commit: fd4ca5ed91d184e3bdf74797552473fa8994bf1f
+  ignore: |
+    # exclude all
+    /*
+    # include kubernetes directory
+    !/charts/metallb

@@ -31,3 +31,9 @@ spec:
       enabled: true
     psp:
       create: false
+    controller:
+      image:
+        tag: main
+    speaker:
+      image:
+        tag: main

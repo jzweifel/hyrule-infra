@@ -16,3 +16,4 @@ resources:
   - ./weave-gitops.yaml
   - ./external-secrets.yaml
   - ./kyverno.yaml
+  - ./nfs-subdir-external-provisioner.yaml

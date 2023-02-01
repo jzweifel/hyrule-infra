@@ -68,9 +68,6 @@
         wait_sleep: 10
         wait_timeout: 360
       loop:
-        - kind: Deployment
-          name: tigera-operator
-          namespace: tigera-operator
         - kind: DaemonSet
           name: kube-vip
           namespace: kube-system

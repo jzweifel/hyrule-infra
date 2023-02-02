@@ -9,7 +9,8 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
-      version: 4.4.3
+      # https://github.com/kubernetes/ingress-nginx/issues/9569#issuecomment-1414027287
+      version: 4.4.2
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx

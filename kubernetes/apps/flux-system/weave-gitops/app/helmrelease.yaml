@@ -45,6 +45,7 @@ spec:
       tls:
         - hosts:
             - *host
+          secretName: weave-gitops-tls
     networkPolicy:
       create: false
     metrics:

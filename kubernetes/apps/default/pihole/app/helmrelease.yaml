@@ -64,6 +64,7 @@ spec:
       tls:
         - hosts:
             - *host
+          secretName: pihole-tls
       annotations:
         hajimari.io/icon: mdi:raspberry-pi
         hajimari.io/url: "https://pihole.zweifel.cloud/admin"

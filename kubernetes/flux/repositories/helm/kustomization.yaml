@@ -16,3 +16,4 @@ resources:
   - ./weave-gitops.yaml
   - ./external-secrets.yaml
   - ./mojo2600.yaml
+  - ./longhorn.yaml

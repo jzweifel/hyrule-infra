@@ -42,6 +42,7 @@ spec:
           - default
           - monitoring
           - flux-system
+          - kube-system
     ingress:
       main:
         enabled: true

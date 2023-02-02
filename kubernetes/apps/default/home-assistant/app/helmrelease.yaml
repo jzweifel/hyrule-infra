@@ -1,0 +1,142 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: home-assistant
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: home-assistant
+      version: 13.4.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: homeassistant/home-assistant
+      tag: 2023.2.0
+    env:
+      TZ: "America/Chicago"
+    hostNetwork: true
+    dnsPolicy: ClusterFirstWithHostNet
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: 10.0.0.233
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          hajimari.io/icon: mdi:home
+          hajimari.io/group: "home"
+          hajimari.io/targetBlank: "true"
+          hajimari.io/info: "Home Assistant"
+          cert-manager.io/cluster-issuer: letsencrypt-production
+        hosts:
+          - host: &host hass.zweifel.cloud
+            paths:
+              - path: /
+                pathType: Prefix
+            tls:
+              - hosts:
+                  - *host
+                secretName: hass-tls
+    prometheus:
+      serviceMonitor:
+        enabled: false
+    probes:
+      liveness:
+        enabled: false
+      readiness:
+        enabled: false
+      startup:
+        enabled: true
+    persistence:
+      config:
+        enabled: true
+        existingClaim: home-assistant-pvc
+    addons:
+      codeserver:
+        enabled: true
+        image:
+          repository: codercom/code-server
+          tag: 4.9.1
+        workingDir: "/config"
+        args:
+          - --user-data-dir
+          - "/config/.vscode"
+          - --auth
+          - "none"
+        env:
+          HASS_SERVER: http://localhost:8123
+        ingress:
+          enabled: true
+          ingressClassName: nginx
+          annotations:
+            hajimari.io/icon: mdi:home-automation
+            hajimari.io/group: "home"
+            hajimari.io/targetBlank: "true"
+            hajimari.io/info: "Home Assistant Code Server"
+            cert-manager.io/cluster-issuer: letsencrypt-production
+          hosts:
+            - host: &host hass-vscode.zweifel.cloud
+              paths:
+                - path: /
+                  pathType: Prefix
+              tls:
+                - hosts:
+                    - *host
+                  secretName: hass-code-tls
+        volumeMounts:
+          - name: config
+            mountPath: /config
+    resources:
+      limits:
+        memory: 3000Mi
+      requests:
+        cpu: 100m
+        memory: 1000Mi
+    postgresql:
+      enabled: true
+      image:
+        repository: postgres
+        tag: '14.1'
+      auth:
+        enablePostgresUser: false
+        username: home-assistant
+        database: home-assistant
+      postgresqlDataDir: "/data/pgdata"
+      shmVolume:
+        enabled: false
+      volumePermissions:
+        enabled: false
+      primary:
+        persistence:
+          enabled: true
+          existingClaim: home-assistant-postgres-pvc
+        tolerations:
+          - key: "arm"
+            operator: "Exists"
+      resources:
+        limits:
+          memory: 4000Mi
+        requests:
+          memory: 1000Mi
+  valuesFrom:
+    - targetPath: postgresql.auth.postgresqlPassword
+      kind: Secret
+      name: home-assistant-secret
+      valuesKey: HASS_DB_ADMIN_PASSWORD
+    - targetPath: postgresql.auth.password
+      kind: Secret
+      name: home-assistant-secret
+      valuesKey: HASS_DB_PASSWORD
+    - targetPath: addons.codeserver.env.HASS_TOKEN
+      kind: Secret
+      name: home-assistant-secret
+      valuesKey: HASS_TOKEN

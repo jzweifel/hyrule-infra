@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: home-assistant-postgres-pvc
+  namespace: default
+spec:
+  storageClassName: nfs-kube
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi

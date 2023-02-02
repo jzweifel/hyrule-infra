@@ -88,12 +88,10 @@ spec:
         port: http
         scheme: HTTP
     persistentVolumeClaim:
-      # set to true to use pvc
-      enabled: true # Change to true
-      # set to true to use you own pvc
-      existingClaim: pihole # Name of the persistent volume claim
+      enabled: true
+      existingClaim: pihole-pvc
     admin:
-      existingSecret: "pihole-secret" # Reference to the secret created step 2
+      existingSecret: "pihole-secret"
       passwordKey: "PIHOLE_ADMIN_PASS"
     extraEnvVars:
       TZ: "America/Chicago"

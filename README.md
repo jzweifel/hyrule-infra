@@ -444,7 +444,6 @@ Rancher's `local-path-provisioner` is a great start for storage but soon you mig
 - [rook-ceph](https://github.com/rook/rook)
 - [longhorn](https://github.com/longhorn/longhorn)
 - [openebs](https://github.com/openebs/openebs)
-- [nfs-subdir-external-provisioner](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner)
 - [democratic-csi](https://github.com/democratic-csi/democratic-csi)
 - [csi-driver-nfs](https://github.com/kubernetes-csi/csi-driver-nfs)
 - [synology-csi](https://github.com/SynologyOpenSource/synology-csi)

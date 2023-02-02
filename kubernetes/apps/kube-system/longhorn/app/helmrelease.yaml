@@ -32,20 +32,16 @@ spec:
     ingress:
       enabled: true
       ingressClassName: nginx
+      host: &host "longhorn.zweifel.cloud"
+      tls: true
+      secureBackends: true
+      tlsSecret: longhorn-tls
+      path: /
       annotations:
-        # cert-manager.io/cluster-issuer: letsencrypt-production
+        cert-manager.io/cluster-issuer: letsencrypt-production
         nginx.ingress.kubernetes.io/whitelist-source-range: |
           10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
         hajimari.io/enable: "true"
         hajimari.io/icon: cow
         hajimari.io/group: storage
         hajimari.io/appName: longhorn
-      hosts:
-        - host: &host "longhorn.zweifel.cloud"
-          paths:
-            - path: /
-              pathType: Prefix
-      # tls:
-      #   - hosts:
-      #       - *host
-      #     secretName: longhorn-tls

@@ -15,6 +15,5 @@ resources:
   - ./stakater.yaml
   - ./weave-gitops.yaml
   - ./external-secrets.yaml
-  - ./kyverno.yaml
   - ./nfs-subdir-external-provisioner.yaml
   - ./mojo2600.yaml

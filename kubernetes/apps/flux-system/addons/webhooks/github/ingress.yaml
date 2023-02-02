@@ -8,7 +8,6 @@ metadata:
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     hajimari.io/enable: "false"
     cert-manager.io/cluster-issuer: letsencrypt-production
-    nginx.ingress.kubernetes.io/enable-cors: "true"
 spec:
   ingressClassName: nginx
   rules:

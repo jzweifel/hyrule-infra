@@ -89,7 +89,7 @@ spec:
         scheme: HTTP
     persistentVolumeClaim:
       enabled: true
-      existingClaim: pihole-pvc
+      existingClaim: pihole-longhorn
     admin:
       existingSecret: "pihole-secret"
       passwordKey: "PIHOLE_ADMIN_PASS"

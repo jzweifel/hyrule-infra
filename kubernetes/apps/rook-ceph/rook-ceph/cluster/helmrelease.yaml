@@ -107,12 +107,6 @@ spec:
           metadataServer:
             activeCount: 1
             activeStandby: true
-            resources:
-              requests:
-                cpu: 500m
-                memory: 2Gi
-              limits:
-                memory: 4Gi
         storageClass:
           enabled: true
           isDefault: false
@@ -143,12 +137,6 @@ spec:
           preservePoolsOnDelete: true
           gateway:
             port: 80
-            resources:
-              requests:
-                cpu: 500m
-                memory: 2Gi
-              limits:
-                memory: 2Gi
             instances: 1
           healthCheck:
             bucket:

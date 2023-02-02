@@ -17,4 +17,3 @@ resources:
   - ./external-secrets.yaml
   - ./nfs-subdir-external-provisioner.yaml
   - ./mojo2600.yaml
-  - ./k8s-at-home-charts.yaml

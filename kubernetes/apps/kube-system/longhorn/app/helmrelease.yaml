@@ -27,7 +27,7 @@ spec:
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       storageMinimalAvailablePercentage: 10
-      defaultReplicaCount: 2
+      defaultReplicaCount: 0
       defaultLonghornStaticStorageClass: longhorn
     ingress:
       enabled: true

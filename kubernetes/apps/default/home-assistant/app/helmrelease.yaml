@@ -110,7 +110,6 @@ spec:
         enablePostgresUser: false
         username: home-assistant
         database: home-assistant
-      postgresqlDataDir: "/data/pgdata"
       shmVolume:
         enabled: false
       volumePermissions:

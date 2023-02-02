@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pihole-longhorn
+  name: pihole-pvc
   namespace: default
 spec:
-  storageClassName: longhorn
+  storageClassName: nfs-kube
   accessModes:
     - ReadWriteOnce
   resources:

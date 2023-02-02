@@ -15,6 +15,5 @@ resources:
   - ./stakater.yaml
   - ./weave-gitops.yaml
   - ./external-secrets.yaml
-  - ./kyverno.yaml
   - ./mojo2600.yaml
   - ./rook-ceph.yaml

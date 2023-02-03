@@ -85,7 +85,7 @@ spec:
         enabled: true
         type: nfs
         server: "10.0.0.119"
-        path: /storage01/media
+        path: /srv/nfs4/media
         mountPath: /data/nas-media
       incomplete:
         enabled: true

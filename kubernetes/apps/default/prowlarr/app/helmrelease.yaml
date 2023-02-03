@@ -96,8 +96,6 @@ spec:
           image:
             pullPolicy: IfNotPresent
         securityContext:
-          allowPriviledgeEscalation: true
-          priviledged: true
           capabilities:
             add:
               - NET_ADMIN

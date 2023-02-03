@@ -95,6 +95,11 @@ spec:
         gluetun:
           image:
             pullPolicy: IfNotPresent
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
+              - SYS_MODULE
         envFrom:
           - secretRef:
               name: prowlarr-secret

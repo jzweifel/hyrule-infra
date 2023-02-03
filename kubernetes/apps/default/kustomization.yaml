@@ -7,4 +7,4 @@ resources:
   - ./hajimari/ks.yaml
   - ./pihole/ks.yaml
   - ./radarr/ks.yaml
-  # - ./prowlarr/ks.yaml
+  - ./prowlarr/ks.yaml

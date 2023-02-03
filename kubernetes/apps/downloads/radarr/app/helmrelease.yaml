@@ -91,7 +91,7 @@ spec:
         type: nfs
         server: 10.0.0.119
         path: /srv/nfs4/media
-        mountPath: /media
+        mountPath: /data/nas-media
       scripts:
         enabled: true
         type: configMap

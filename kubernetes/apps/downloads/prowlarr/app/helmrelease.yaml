@@ -91,39 +91,3 @@ spec:
         memory: 100Mi
       limits:
         memory: 500Mi
-    addons:
-      vpn:
-        enabled: true
-        type: gluetun
-        gluetun:
-          image:
-            pullPolicy: IfNotPresent
-        securityContext:
-          capabilities:
-            add:
-              - NET_ADMIN
-              - SYS_MODULE
-        envFrom:
-          - secretRef:
-              name: prowlarr-secret
-        livenessProbe:
-          exec:
-            command:
-              - sh
-              - -c
-              - if [ $(wget -q -O- https://ipinfo.io/country) == 'BE' ]; then exit 0; else exit $?; fi
-          initialDelaySeconds: 30
-          periodSeconds: 60
-          failureThreshold: 1
-        networkPolicy:
-          enable: true
-          egress:
-            - to:
-                - ipBlock:
-                    cidr: 0.0.0.0/0
-              ports:
-                - port: 1194
-                  protocol: UDP
-            - to:
-                - ipBlock:
-                    cidr: 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16

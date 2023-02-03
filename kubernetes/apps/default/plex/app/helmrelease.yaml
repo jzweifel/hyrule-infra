@@ -52,8 +52,8 @@ spec:
         existingClaim: plex-config
       nfs-nas-media:
         enabled: true
-        mountPath: /storage/media
-        path: /storage01/media
+        mountPath: /data/nas-media
+        path: /srv/nfs4/media
         server: 10.0.0.119
         type: nfs
       transcode:

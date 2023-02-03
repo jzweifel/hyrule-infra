@@ -43,6 +43,7 @@ spec:
           - monitoring
           - flux-system
           - kube-system
+          - downloads
     ingress:
       main:
         enabled: true

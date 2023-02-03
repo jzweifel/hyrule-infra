@@ -7,3 +7,4 @@ resources:
   # Other stuff
   - ./prowlarr/ks.yaml
   - ./radarr/ks.yaml
+  - ./sabnzbd/ks.yaml

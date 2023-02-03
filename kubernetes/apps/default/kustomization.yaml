@@ -7,3 +7,4 @@ resources:
   - ./hajimari/ks.yaml
   - ./pihole/ks.yaml
   - ./jellyfin/ks.yaml
+  - ./theme-park/ks.yaml

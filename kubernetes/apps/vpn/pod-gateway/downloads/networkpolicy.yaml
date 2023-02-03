@@ -12,13 +12,13 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: downloads-gateway
       app.kubernetes.io/name: pod-gateway
-
   egress:
-    - toCIDR:
-        - 0.0.0.0/0
-      toPorts:
-        - ports:
-            - port: "51820"
-              protocol: UDP
-    - toEntities:
-        - cluster
+    - to:
+        - ipBlock:
+            cidr: 0.0.0.0/0
+      ports:
+        - port: 1194
+          protocol: UDP
+    - to:
+        - ipBlock:
+            cidr: 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16

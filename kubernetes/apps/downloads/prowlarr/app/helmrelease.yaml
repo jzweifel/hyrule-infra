@@ -98,4 +98,4 @@ spec:
                 - key: vpn-enabled
                   operator: In
                   values:
-                    - true
+                    - "true"

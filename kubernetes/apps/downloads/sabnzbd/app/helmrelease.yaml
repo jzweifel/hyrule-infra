@@ -96,3 +96,12 @@ spec:
         memory: "161M"
       # limits:
       #   memory: "4096M"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: vpn-enabled
+                  operator: In
+                  values:
+                    - true

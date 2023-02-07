@@ -54,6 +54,8 @@ spec:
             port: 8265
           server:
             enabled: true
+            type: LoadBalancer
+            loadBalancerIP: "10.0.0.236"
             protocol: TCP
             port: 8266
     persistence:
@@ -92,39 +94,39 @@ spec:
           - hosts:
               - *host
             secretName: tdarr-tls
-    sidecars:
-      node:
-        name: node
-        image: docker.io/haveagitgat/tdarr_node:latest
-        env:
-          - name: TZ
-            value: "America/Chicago"
-          - name: nodeID
-            value: node01
-          - name: serverIP
-            value: localhost
-          - name: serverPort
-            value: 8266
-          - name: ffmpegPath
-            value: ""
-          - name: PUID
-            value: 568
-          - name: PGID
-            value: 568
-        volumeMounts:
-          - name: config
-            mountPath: /app/configs
-          - name: media
-            mountPath: /data/nas-media
-          - name: shared
-            mountPath: /shared
-        # resources: {}
-        affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
+    # sidecars:
+    #   node:
+    #     name: node
+    #     image: docker.io/haveagitgat/tdarr_node:latest
+    #     env:
+    #       - name: TZ
+    #         value: "America/Chicago"
+    #       - name: nodeID
+    #         value: node01
+    #       - name: serverIP
+    #         value: localhost
+    #       - name: serverPort
+    #         value: 8266
+    #       - name: ffmpegPath
+    #         value: ""
+    #       - name: PUID
+    #         value: 568
+    #       - name: PGID
+    #         value: 568
+    #     volumeMounts:
+    #       - name: config
+    #         mountPath: /app/configs
+    #       - name: media
+    #         mountPath: /data/nas-media
+    #       - name: shared
+    #         mountPath: /shared
+    #     # resources: {}
+    #     affinity:
+    #   nodeAffinity:
+    #     requiredDuringSchedulingIgnoredDuringExecution:
+    #       nodeSelectorTerms:
+    #         - matchExpressions:
+    #             - key: kubernetes.io/arch
+    #               operator: In
+    #               values:
+    #                 - amd64

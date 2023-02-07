@@ -92,7 +92,7 @@ spec:
           - hosts:
               - *host
             secretName: tdarr-tls
-    additionalContainers:
+    sidecars:
       node:
         name: node
         image: docker.io/haveagitgat/tdarr_node:latest

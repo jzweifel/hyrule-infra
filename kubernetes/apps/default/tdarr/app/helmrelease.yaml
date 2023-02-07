@@ -38,15 +38,6 @@ spec:
       ffmpegPath: ""
       PUID: 568
       PGID: 568
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
     service:
       main:
         type: LoadBalancer
@@ -120,7 +111,11 @@ spec:
             mountPath: /data/nas-media
           - name: shared
             mountPath: /shared
-        # resources: {}
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            memory: "2048M"
         affinity:
           nodeAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:

@@ -113,7 +113,7 @@ spec:
             mountPath: /shared
         resources:
           requests:
-            cpu: 1500m
+            cpu: 2500m
           limits:
             memory: "2048M"
         affinity:

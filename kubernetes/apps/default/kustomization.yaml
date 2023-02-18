@@ -6,4 +6,3 @@ resources:
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
   - ./pihole/ks.yaml
-  - ./tdarr/ks.yaml

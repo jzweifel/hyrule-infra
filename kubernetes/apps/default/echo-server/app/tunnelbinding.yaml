@@ -6,6 +6,8 @@ metadata:
   namespace: default
 subjects:
   - name: echo-server
+    spec:
+      fqdn: echo-server.zweifel.cloud
 tunnelRef:
   kind: ClusterTunnel
   name: cluster-tunnel

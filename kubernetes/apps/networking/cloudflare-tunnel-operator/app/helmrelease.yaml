@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: cloudflare-tunnel-operator
-      version: v0.2.0
+      version: 0.2.0
       sourceRef:
         kind: HelmRepository
         name: beezlabs
@@ -29,6 +29,6 @@ spec:
     image:
       repository: ghcr.io/beezlabs-org/cloudflare-tunnel-operator
       pullPolicy: IfNotPresent
-      tag: 0.2.0
+      tag: v0.2.0
     namespace:
       create: false

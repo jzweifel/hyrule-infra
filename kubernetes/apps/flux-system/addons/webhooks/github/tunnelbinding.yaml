@@ -1,0 +1,13 @@
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: flux-webhook-tunnel
+  namespace: flux-system
+subjects:
+  - name: webhook-receiver
+    spec:
+      fqdn: flux-webhook.zweifel.cloud
+tunnelRef:
+  kind: ClusterTunnel
+  name: cluster-tunnel

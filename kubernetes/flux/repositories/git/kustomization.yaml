@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - ./local-path-provisioner.yaml
   - ./metallb-git.yaml
+  - ./cloudflare-operator.yaml

@@ -23,7 +23,7 @@ spec:
       - localhost:9090
       - --no-autoupdate
       - --config
-      - /root/.cloudflared/config.yaml
+      - /config/config.yaml
       - run
   tokenSecretName: cloudflare-tunnel-operator-secret
   replicas: 1

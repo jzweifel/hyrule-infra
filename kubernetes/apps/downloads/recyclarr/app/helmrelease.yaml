@@ -41,7 +41,7 @@ spec:
       - secretRef:
           name: radarr-secret
       - secretRef:
-          name: sonarr-secret
+          name: sonarr-secrets
     service:
       main:
         enabled: false

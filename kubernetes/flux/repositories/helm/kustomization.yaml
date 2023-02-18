@@ -18,3 +18,4 @@ resources:
   - ./mojo2600.yaml
   - ./k8s-at-home-charts.yaml
   - ./angelnu.yaml
+  - ./beezlabs.yaml

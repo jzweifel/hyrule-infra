@@ -6,5 +6,4 @@ resources:
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
   - ./pihole/ks.yaml
-  - ./jellyfin/ks.yaml
   - ./tdarr/ks.yaml

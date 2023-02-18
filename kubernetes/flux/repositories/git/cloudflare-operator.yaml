@@ -7,6 +7,8 @@ metadata:
 spec:
   interval: 30m
   url: https://github.com/adyanth/cloudflare-operator
+  ref:
+    branch: main
   ignore: |
     # exclude all
     /*

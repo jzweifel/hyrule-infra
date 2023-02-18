@@ -33,7 +33,6 @@ spec:
       main:
         enabled: true
         annotations:
-          external-dns.home.arpa/enabled: "true"
           nginx.ingress.kubernetes.io/backend-protocol: HTTPS
         ingressClassName: nginx
         hosts:

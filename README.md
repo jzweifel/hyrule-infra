@@ -132,7 +132,6 @@ Pi-hole also provides ad-blocking.
 | ---------------------------------- | ----- | ------------ | -------------------- | ---- | ---------------- | --------------------------------------- |
 | Libre Computer Board ROC-RK3328-CC | 3     | 32GB SSD     | 1TB HDD (nfs)        | 4GB  | Ubuntu           | Kubernetes Masters/Workers, NFS Servers |
 | Hyper-V                            | 1     | 128GB NVMe   | -                    | 4GB  | Ubuntu           | Kubernetes Workers                      |
-| Intel NUC8i5BEH                    | 3     | 240GB SSD    | 1TB NVMe (rook-ceph) | 64GB | Ubuntu           | Kubernetes Workers                      |
 | eero Pro 6e                        | 2     | -            | -                    | -    | -                | Mesh Router                             |
 
 ---

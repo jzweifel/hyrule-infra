@@ -84,11 +84,6 @@ spec:
         accessMode: ReadWriteOnce
         size: 2Gi
         storageClass: nfs-kube
-      - name: config-longhorn
-        mountPath: /config-longhorn
-        accessMode: ReadWriteOnce
-        size: 2Gi
-        storageClass: longhorn
     resources:
       requests:
         cpu: 10m

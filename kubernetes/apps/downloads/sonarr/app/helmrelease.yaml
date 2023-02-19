@@ -33,11 +33,9 @@ spec:
       SONARR__PORT: &port 8989
       SONARR__APPLICATION_URL: "https://sonarr.zweifel.cloud"
       SONARR__LOG_LEVEL: info
-      SONARR__API_KEY:
-        valueFrom:
-          secretKeyRef:
-            name: sonarr-secrets
-            key: api_key
+    envFrom:
+      - secretRef:
+          name: sonarr-secrets
     service:
       main:
         ports:

@@ -78,12 +78,12 @@ spec:
       runAsGroup: 568
       fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
-    volumeClaimTemplates:
-      - name: config
+    persistence:
+      config:
+        enabled: true
+        type: pvc
         mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 2Gi
-        storageClass: nfs-kube
+        existingClaim: prowlarr-config
     resources:
       requests:
         cpu: 10m

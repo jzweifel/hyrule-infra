@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: prowlarr-config
+  name: prowlarr-config-longhorn
   namespace: downloads
 spec:
   accessModes:

@@ -50,6 +50,7 @@ tasks:
         weaveworks/tap/gitops
         yamllint
         yq
+        gitleaks
 
   verify:
     desc: Verify env settings

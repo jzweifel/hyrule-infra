@@ -25,7 +25,7 @@ spec:
   values:
     fullnameOverride: prometheus
     alertmanager:
-      enabled: true
+      enabled: false
       config:
         global:
           resolve_timeout: 5m

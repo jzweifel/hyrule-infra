@@ -20,3 +20,4 @@ resources:
   - ./beezlabs.yaml
   - ./longhorn.yaml
   - ./piraeus.yaml
+  - ./prometheus-community.yaml

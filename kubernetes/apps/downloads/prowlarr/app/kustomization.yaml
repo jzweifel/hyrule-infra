@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: downloads
 resources:
   - ./externalsecret.yaml
-  # - ./helmrelease.yaml
+  - ./helmrelease.yaml
   - ./pvc.yaml
 generatorOptions:
   disableNameSuffixHash: true

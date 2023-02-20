@@ -64,11 +64,11 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: sonarr-config
+        existingClaim: sonarr-config-longhorn
       media:
         enabled: true
         type: nfs
-        server: 10.0.0.119
+        server: 10.0.0.121
         path: /srv/nfs4/media
         mountPath: /data/nas-media
     resources:

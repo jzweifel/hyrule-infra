@@ -25,6 +25,7 @@ spec:
   values:
     fullnameOverride: prometheus
     alertmanager:
+      enabled: true
       config:
         global:
           resolve_timeout: 5m
@@ -114,7 +115,6 @@ spec:
             secretName: alert-manager-tls
       alertmanagerSpec:
         replicas: 1
-        podAntiAffinity: hard
         storage:
           volumeClaimTemplate:
             spec:

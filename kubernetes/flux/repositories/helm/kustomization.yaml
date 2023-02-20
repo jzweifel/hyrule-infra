@@ -19,3 +19,4 @@ resources:
   - ./angelnu.yaml
   - ./beezlabs.yaml
   - ./longhorn.yaml
+  - ./piraeus.yaml

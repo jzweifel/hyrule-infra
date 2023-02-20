@@ -56,7 +56,7 @@ This Git repository contains the following directories under [kubernetes](./kube
 
 ### Cluster layout
 
-Below is a a high level look at the layout of how my directory structure with Flux works. In this brief example you are able to see that `pihole` will not be able to run until `nfs-subdir-external-provisioner`, `external-secrets-stores` and  `ingress-nginx` are running. It also shows that the `ClusterSecretStore` custom resource depends on the `external-secrets` Helm chart. This is needed because `external-secrets` installs the `ClusterSecretStore` custom resource definition in the Helm chart.
+Below is a a high level look at the layout of how my directory structure with Flux works. In this brief example you are able to see that `pihole` will not be able to run until `longhorn`, `external-secrets-stores` and  `ingress-nginx` are running. It also shows that the `ClusterSecretStore` custom resource depends on the `external-secrets` Helm chart. This is needed because `external-secrets` installs the `ClusterSecretStore` custom resource definition in the Helm chart.
 
 ```python
 # Key: <kind> :: <metadata.name>
@@ -65,12 +65,12 @@ GitRepository :: home-ops-kubernetes
         Kustomization :: cluster-apps
             Kustomization :: cluster-apps-pihole
                 DependsOn:
-                    Kustomization :: cluster-apps-nfs-subdir-external-provisioner
+                    Kustomization :: cluster-apps-longhorn
                     Kustomization :: cluster-apps-external-secrets-stores
                     Kustomization :: cluster-apps-ingress-nginx
                 HelmRelease :: pihole
-            Kustomization :: cluster-apps-nfs-subdir-external-provisioner
-                HelmRelease :: nfs-subdir-external-provisioner
+            Kustomization :: cluster-apps-longhorn
+                HelmRelease :: cluster-apps-longhorn
             Kustomization :: cluster-apps-external-secrets-stores
                 DependsOn:
                     Kustomization :: cluster-apps-external-secrets

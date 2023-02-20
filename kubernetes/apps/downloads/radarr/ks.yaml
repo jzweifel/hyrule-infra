@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-ingress-nginx
-    - name: cluster-apps-nfs-subdir-external-provisioner
+    - name: cluster-apps-longhorn
   path: ./kubernetes/apps/downloads/radarr/app
   prune: true
   sourceRef:

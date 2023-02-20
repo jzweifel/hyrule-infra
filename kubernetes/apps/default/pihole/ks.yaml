@@ -8,7 +8,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-nfs-subdir-external-provisioner
+    - name: cluster-apps-longhorn
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-ingress-nginx
   path: ./kubernetes/apps/default/pihole/app

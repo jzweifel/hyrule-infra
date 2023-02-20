@@ -83,7 +83,7 @@ spec:
         enabled: true
         type: pvc
         mountPath: /config
-        existingClaim: prowlarr-config
+        existingClaim: prowlarr-config-longhorn
     resources:
       requests:
         cpu: 10m

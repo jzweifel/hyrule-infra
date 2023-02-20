@@ -7,4 +7,4 @@ resources:
   - ./hajimari/ks.yaml
   - ./pihole/ks.yaml
   - ./glauth/ks.yaml
-  # - ./cloudnative-pg/ks.yaml
+  - ./cloudnative-pg/ks.yaml

@@ -79,17 +79,16 @@ spec:
       fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups: [10000]
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 15Gi
-        storageClass: nfs-kube
     persistence:
+      config:
+        enabled: true
+        type: pvc
+        mountPath: /config
+        existingClaim: radarr-config
       media:
         enabled: true
         type: nfs
-        server: 10.0.0.119
+        server: 10.0.0.121
         path: /srv/nfs4/media
         mountPath: /data/nas-media
       scripts:

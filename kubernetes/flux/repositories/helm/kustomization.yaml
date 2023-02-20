@@ -21,3 +21,4 @@ resources:
   - ./longhorn.yaml
   - ./piraeus.yaml
   - ./prometheus-community.yaml
+  - ./cloudnative-pg.yaml

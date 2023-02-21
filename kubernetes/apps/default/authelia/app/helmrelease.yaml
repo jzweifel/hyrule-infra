@@ -104,6 +104,12 @@ spec:
       runAsGroup: 568
       fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
+    volumeClaimTemplates:
+      - name: logs
+        mountPath: /logs
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: longhorn
     persistence:
       config:
         enabled: true

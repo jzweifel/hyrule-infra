@@ -29,5 +29,4 @@ identity_providers:
 log:
   level: debug
   format: text
-  file_path: /logs/authelia.log
   keep_stdout: true

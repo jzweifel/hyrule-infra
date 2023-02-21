@@ -29,6 +29,11 @@ spec:
     adminUser:
       create: true
       username: admin
+    oidcSecret:
+      create: true
+      clientID: weave-gitops
+      issuerURL: https://auth.zweifel.cloud
+      redirectURL: https://gitops.zweifel.cloud/oauth2/callback
     ingress:
       enabled: true
       className: nginx
@@ -61,3 +66,7 @@ spec:
       name: weave-gitops-secret
       valuesKey: adminPassword
       targetPath: adminUser.passwordHash
+    - kind: Secret
+      name: weave-gitops-secret
+      valuesKey: WEAVEGITOPS_OAUTH_CLIENT_SECRET
+      targetPath: oidcSecret.clientSecret

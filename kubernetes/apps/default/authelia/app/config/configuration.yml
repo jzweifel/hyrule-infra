@@ -16,7 +16,7 @@ identity_providers:
     clients:
       - id: weave-gitops
         description: Weave GitOps
-        secret: "${WEAVEGITOPS_OAUTH_CLIENT_SECRET}"
+        secret: "{{ .WEAVEGITOPS_OAUTH_CLIENT_SECRET }}"
         public: false
         authorization_policy: two_factor
         pre_configured_consent_duration: 1y

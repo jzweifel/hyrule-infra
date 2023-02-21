@@ -1,0 +1,13 @@
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: wizarr-tunnel
+  namespace: default
+subjects:
+  - name: wizarr
+    spec:
+      fqdn: wizarr.zweifel.cloud
+tunnelRef:
+  kind: ClusterTunnel
+  name: cluster-tunnel

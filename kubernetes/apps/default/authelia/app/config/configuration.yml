@@ -7,6 +7,9 @@ access_control:
   rules:
     - domain: ["pihole.zweifel.cloud"]
       policy: bypass
+    - domain: ["wizarr.zweifel.cloud"]
+      resources: ["^/join.*$", "^/j/.*$", "^/setup.*$", "^/static/.*$"]
+      policy: bypass
 
 identity_providers:
   oidc:

@@ -8,5 +8,5 @@ resources:
   - ./pihole/ks.yaml
   - ./glauth/ks.yaml
   - ./cloudnative-pg/ks.yaml
-  - ./authelia/ks.yaml
+  # - ./authelia/ks.yaml
   - ./wizarr/ks.yaml

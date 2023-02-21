@@ -1,0 +1,13 @@
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: echo-server-tunnel
+  namespace: networking
+subjects:
+  - name: ingress-nginx-controller
+    spec:
+      fqdn: echo-server.zweifel.cloud
+tunnelRef:
+  kind: ClusterTunnel
+  name: cluster-tunnel

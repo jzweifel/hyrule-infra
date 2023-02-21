@@ -9,6 +9,7 @@ kubeconfig
 *.agekey
 *.pub
 *.key
+*.pem
 # Ansible
 xanmanning.k3s*
 # Terraform

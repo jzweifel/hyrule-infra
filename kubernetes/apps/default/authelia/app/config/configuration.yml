@@ -1,6 +1,6 @@
 ---
 access_control:
-  default_policy: two_factor
+  default_policy: one_factor
   networks:
     - name: internal
       networks: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
@@ -21,7 +21,7 @@ identity_providers:
         description: Weave GitOps
         secret: "{{ .WEAVEGITOPS_OAUTH_CLIENT_SECRET }}"
         public: false
-        authorization_policy: two_factor
+        authorization_policy: one_factor
         pre_configured_consent_duration: 1y
         scopes: ["openid", "profile", "groups", "email", "offline_access"]
         redirect_uris: ["https://gitops.zweifel.cloud/oauth2/callback"]

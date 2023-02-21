@@ -11,3 +11,29 @@ subjects:
 tunnelRef:
   kind: ClusterTunnel
   name: cluster-tunnel
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: wizarr-tunnel
+  namespace: default
+subjects:
+  - name: ingress-nginx-controller
+    spec:
+      fqdn: wizarr.zweifel.cloud
+tunnelRef:
+  kind: ClusterTunnel
+  name: cluster-tunnel
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: authelia-tunnel
+  namespace: default
+subjects:
+  - name: ingress-nginx-controller
+    spec:
+      fqdn: auth.zweifel.cloud
+tunnelRef:
+  kind: ClusterTunnel
+  name: cluster-tunnel

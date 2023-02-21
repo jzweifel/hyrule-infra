@@ -4,7 +4,6 @@ kind: Kustomization
 namespace: default
 resources:
   - ./externalsecret.yaml
-  - ./tunnelbinding.yaml
   - ./helmrelease.yaml
 patchesStrategicMerge:
   - ./patches/env.yaml

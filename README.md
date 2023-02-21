@@ -14,6 +14,8 @@ _... managed with Flux, Renovate and GitHub Actions_
 
 This is a mono repository for my home infrastructure and Kubernetes cluster. I try to adhere to Infrastructure as Code (IaC) and GitOps practices using the tools like [Ansible](https://www.ansible.com/), [Terraform](https://www.terraform.io/), [Kubernetes](https://kubernetes.io/), [Flux](https://github.com/fluxcd/flux2), [Renovate](https://github.com/renovatebot/renovate) and [GitHub Actions](https://github.com/features/actions).
 
+I'm very early in my homelabbing journey. I don't have a NAS, or rack-mount hardware, but what I do have is an appetite for learning by doing, and my general approach is small, iterative steps. I'm sure in a few year's time I'll have more hardware than I know what to do with. ;)
+
 ---
 
 ## Kubernetes
@@ -128,12 +130,34 @@ Pi-hole also provides ad-blocking.
 
 ## 🔧 Hardware
 
-| Device                             | Count | OS Disk Size | Data Disk Size       | Ram  | Operating System | Purpose                                 |
-| ---------------------------------- | ----- | ------------ | -------------------- | ---- | ---------------- | --------------------------------------- |
-| Libre Computer Board ROC-RK3328-CC | 3     | 32GB SSD     | 1TB HDD (nfs)        | 4GB  | Ubuntu           | Kubernetes Masters/Workers, NFS Servers |
-| Hyper-V                            | 1     | 128GB NVMe   | -                    | 4GB  | Ubuntu           | Kubernetes Workers                      |
-| eero Pro 6e                        | 2     | -            | -                    | -    | -                | Mesh Router                             |
+<details>
+  <summary>Click here to see my cluster!</summary>
 
+  <img src="media/cluster.jpg" align="center" alt="cluster" />
+</details>
+
+| Device                             | Count | OS Disk Size | Data Disk Size                                                            | Ram | Operating System | Purpose                                 |
+| ---------------------------------- | ----- | ------------ | ------------------------------------------------------------------------- | --- | ---------------- | --------------------------------------- |
+| Libre Computer Board ROC-RK3328-CC | 3     | 32GB SSD     | 5TB Total (1+2TB HDD LVM for Longhorn, 2TB for media and longhorn backup) | 4GB | Ubuntu           | Kubernetes Masters/Workers, NFS Servers |
+| Hyper-V                            | 1     | 128GB NVMe   | -                                                                         | 4GB | Ubuntu           | Kubernetes Workers                      |
+| eero Pro 6e                        | 2     | -            | -                                                                         | -   | -                | Mesh Router                             |
+
+Each node in the cluster has an attached USB 3.0 HDD drive. One node has a 1TB drive, while the other two have 2TB drives.
+
+<details>
+  <summary>Bill of Materials for the cluster</summary>
+
+  | Name                                                                                                  | Count | Price          | Source                               |
+  | ----------------------------------------------------------------------------------------------------- | ----- | -------------- | ------------------------------------ |
+  | Libre Computer Board ROC-RK3328-CC 4.0 GB                                                             | 3     | $50.00         | https://www.amazon.com/dp/B078RT6H8X |
+  | C4Labs Zebra Bramble Case – Raspberry Pi 4B & 3B+ (6 Stack, Black Ice)                                | 1     | $45            | https://www.amazon.com/dp/B07VQKPZZT |
+  | Slitinto 8-Port Fast Desktop Charger with LCD Display                                                 | 1     | $20            | https://www.amazon.com/dp/B09HYXK38K |
+  | SanDisk 32GB (Pack of 2) Ultra microSDHC UHS-I Memory Card (2x32GB) with Adapter - SDSQUA4-032G-GN6MT | 2     | $12.40         | https://www.amazon.com/dp/B08J4HJ98L |
+  | TP-Link TL-SG108 8 Port Gigabit Unmanaged Ethernet Network Switch                                     | 1     | $20            | https://www.amazon.com/dp/B00A121WN6 |
+  | Micro USB Cable 3ft, 3Pack 3FT Nylon Braided High Speed Micro USB Charging and Sync Cables            | 1     | $10            | https://www.amazon.com/dp/B06ZXXVTD6 |
+  | Cable Matters 10Gbps 10-Pack Snagless Short Cat 6 Ethernet Cable 1 ft                                 | 1     | $18            | https://www.amazon.com/dp/B00K2E4X2U |
+  |                                                                                                       |       | Total: $275.40 |                                      |
+</details>
 ---
 
 ### 🤖 Renovatebot

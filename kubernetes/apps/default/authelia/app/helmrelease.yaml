@@ -107,8 +107,8 @@ spec:
     persistence:
       config:
         enabled: true
-        type: configMap
-        name: authelia-configmap
+        type: secret
+        name: authelia-configmap-secret
         subPath: configuration.yml
         mountPath: /config/configuration.yml
         readOnly: false

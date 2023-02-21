@@ -23,3 +23,8 @@ identity_providers:
         scopes: ["openid", "profile", "groups", "email", "offline_access"]
         redirect_uris: ["https://gitops.zweifel.cloud/oauth2/callback"]
         userinfo_signing_algorithm: none
+log:
+  level: debug
+  format: text
+  file_path: /config/authelia.log
+  keep_stdout: true

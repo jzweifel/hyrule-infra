@@ -10,7 +10,7 @@ patchesStrategicMerge:
 configMapGenerator:
   - name: authelia-configmap
     files:
-      - ./config/configuration.yaml
+      - ./config/configuration.yml
 generatorOptions:
   disableNameSuffixHash: true
   annotations:

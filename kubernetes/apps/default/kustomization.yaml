@@ -10,3 +10,4 @@ resources:
   - ./cloudnative-pg/ks.yaml
   - ./authelia/ks.yaml
   - ./wizarr/ks.yaml
+  - ./redis/ks.yaml

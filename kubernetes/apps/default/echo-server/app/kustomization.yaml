@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helmrelease.yaml
+  - ./tunnelbinding.yaml
 generatorOptions:
   disableNameSuffixHash: true

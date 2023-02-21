@@ -1,0 +1,13 @@
+---
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: overseerr-tunnel
+  namespace: default
+subjects:
+  - name: overseerr
+    spec:
+      fqdn: requests.zweifel.cloud
+tunnelRef:
+  kind: ClusterTunnel
+  name: cluster-tunnel

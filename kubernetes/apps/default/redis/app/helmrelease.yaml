@@ -29,21 +29,37 @@ spec:
     auth:
       enabled: false
       sentinel: false
+    image:
+      registry: docker.io
+      repository: arm64v8/redis
+      tag: 7.0.8
     master:
       persistence:
         enabled: false
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - arm64
     replica:
       persistence:
         enabled: false
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - arm64
     sentinel:
-      enabled: true
-      masterSet: redis-master
-      getMasterTimeout: 10
-      startupProbe:
-        failureThreshold: 2
-      persistence:
-        enabled: false
+      enabled: false
     metrics:
-      enabled: true
+      enabled: false
       serviceMonitor:
-        enabled: true
+        enabled: false

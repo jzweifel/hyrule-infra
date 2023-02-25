@@ -30,7 +30,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/wizarrrr/wizarr
-      tag: 2.0.0
+      tag: 2.0.2
     env:
       TZ: America/Chicago
       APP_URL: https://wizarr.zweifel.cloud

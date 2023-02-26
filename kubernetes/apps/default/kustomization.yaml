@@ -10,3 +10,4 @@ resources:
   - ./cloudnative-pg/ks.yaml
   - ./wizarr/ks.yaml
   - ./overseerr/ks.yaml
+  - ./tdarr/ks.yaml

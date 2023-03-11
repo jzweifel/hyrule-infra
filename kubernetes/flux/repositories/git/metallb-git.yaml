@@ -8,7 +8,7 @@ spec:
   interval: 30m
   url: https://github.com/metallb/metallb
   ref:
-    commit: 293f43c1f78ab1b5fa8879a76746b094bd9dd3ca
+    commit: 6a5ad674b791ca00ab6f797023a2a04d5b7903aa
   ignore: |
     # exclude all
     /*

@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: ghcr.io/onedr0p/sonarr-develop
-      tag: 4.0.0.397@sha256:c4e924f3c0305f63945550aa2318f559de56a40fdad6d88d60edd097672aa996
+      tag: 4.0.0.556@sha256:91ea2bb0aa1359a97418ee6cabe3155ece4df49caed937946ca0a837298f751f
     podAnnotations:
       secret.reloader.stakater.com/reload: sonarr-secrets
     podSecurityContext:
